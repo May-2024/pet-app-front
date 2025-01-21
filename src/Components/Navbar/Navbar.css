@@ -1,0 +1,38 @@
+.navbar-container {
+    background-color:var(--cafe-oscuro) ;
+    display: flex;
+    justify-content:space-between;
+    height: 4rem;
+    align-items: center;
+    font-size: 1.4rem;
+    
+}
+
+.links-container {
+    width: 18rem ;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+    margin-right: 1rem;
+    
+}
+
+.navbar-container li:hover{
+    
+    text-shadow: 0 0 12px var(--hueso);
+    
+}
+
+.logo-container {
+
+    height: 100% ;
+    width: 3rem;
+}
+.logo-container img{
+height:100%;
+}
+
+/* .aaa {
+    color: rgb(253, 242, 226);
+} */

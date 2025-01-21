@@ -1,0 +1,46 @@
+.hueso {
+    position: relative;
+    width: 150px;
+    height: 50px;
+    background-color: #ddd;
+    border-radius: 25px;
+    margin: 50px auto;
+  }
+  
+  .hueso::before,
+  .hueso::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #ddd;
+    border-radius: 50%;
+  }
+  
+  .hueso::before {
+    top: -25px;
+    left: -25px;
+  }
+  
+  .hueso::after {
+    top: -25px;
+    right: -25px;
+  }
+  
+  .hueso > div {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #ddd;
+    border-radius: 50%;
+  }
+  
+  .hueso > .bottom-left {
+    bottom: -25px;
+    left: -25px;
+  }
+  
+  .hueso > .bottom-right {
+    bottom: -25px;
+    right: -25px;
+  }

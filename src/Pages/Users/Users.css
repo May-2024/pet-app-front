@@ -1,0 +1,6 @@
+.users-container {
+    background-color: var(--beige-dorado);
+    height: calc(100vh - 4rem);
+    display: flex;
+    justify-content: center;
+}

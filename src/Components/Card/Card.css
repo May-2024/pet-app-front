@@ -1,0 +1,84 @@
+.card-container{
+    background-color: var(--cafe-claro);
+    width: 40rem;
+    height: 20rem;
+    display: flex;
+    border-radius: 36px;
+
+} 
+
+.info-container{
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    color: var(--oscurito);
+      
+}
+
+
+.imagen-container{
+    width: 16rem;
+    background-color: var(--beige-dorado);
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 12%;  
+    
+}
+
+.card-info-container{
+    height: 18rem;
+    background-color: var(--hueso);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 12%;
+}
+
+.card-p-container {
+    margin: 1.6rem;
+    margin-bottom: 0;
+    font-weight: bold;
+    height: calc(72% - 1.6rem);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+
+.button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28%;
+}
+
+.adopt-button {
+    height: 2.6rem;
+    width: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--hueso); 
+    background-color: var(--cafe-claro);
+    border: none;
+    border-radius: 32px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0px 6px 0px var(--cafe-oscuro), 0px 6px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+.adopt-button:hover {
+    box-shadow: 0px 4px 0px var(--cafe-oscuro), 0px 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.adopt-button:active {
+    box-shadow: 0px 2px 0px var(--cafe-oscuro), 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transform: translateY(2px);
+}
