@@ -4,6 +4,7 @@
     height: 20rem;
     display: flex;
     border-radius: 36px;
+    margin-top: 1rem;
 
 } 
 
@@ -18,13 +19,23 @@
 }
 
 
-.imagen-container{
+.imagen-container {
     width: 16rem;
     background-color: var(--beige-dorado);
     margin: 1rem;
     padding: 1rem;
-    border-radius: 12%;  
-    
+    border-radius: 12%;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    overflow: hidden; /* Para recortar el contenido que exceda el contenedor */
+}
+
+.imagen-container img {
+    max-width: 100%; 
+    max-height: 100%; 
+    object-fit: cover; 
+    border-radius: 6%;
 }
 
 .card-info-container{
@@ -40,12 +51,23 @@
     margin: 1.6rem;
     margin-bottom: 0;
     font-weight: bold;
-    height: calc(72% - 1.6rem);
+    height: calc(72% - 1.6rem);  
+}
+
+.card-p-container p {
+     margin-bottom: 1rem;
+}
+
+
+.card-pets-container {
+    margin: 1.6rem;
+    font-weight: bold;
+    height: calc(42% - 1.6rem);
     
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    
+}
+
+.card-pets-container p {
+    margin-bottom: 1.2rem;
 }
 
 
@@ -71,6 +93,7 @@
     cursor: pointer;
     box-shadow: 0px 6px 0px var(--cafe-oscuro), 0px 6px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.2s ease;
+    margin-bottom: 0.8rem;
 }
 
 .adopt-button:hover {

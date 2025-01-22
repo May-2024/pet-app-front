@@ -1,36 +1,45 @@
 .navbar-container {
-    background-color:var(--cafe-oscuro) ;
-    display: flex;
-    justify-content:space-between;
-    height: 4rem;
-    align-items: center;
-    font-size: 1.4rem;
-    
+  background-color: var(--cafe-oscuro);
+  display: flex;
+  justify-content: space-between;
+  height: 4rem;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.app-name-container {
+  color: var(--hueso);
+  font-weight: bolder;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  width: 11rem;
+  text-align: left;
+  
 }
 
 .links-container {
-    width: 18rem ;
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
-    align-items: center;
-    margin-right: 1rem;
-    
+  width: 12rem;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+  margin-right: 1rem;
 }
 
-.navbar-container li:hover{
-    
-    text-shadow: 0 0 12px var(--hueso);
-    
+.navbar-container li:hover {
+  text-shadow: 0 0 12px var(--hueso);
 }
 
 .logo-container {
-
-    height: 100% ;
-    width: 3rem;
+  height: 4rem;
+  width: 4rem;
+  
 }
-.logo-container img{
-height:100%;
+.logo-container img {
+  height: 90%;
+  width: 90%;
+  margin:0.2rem
 }
 
 /* .aaa {

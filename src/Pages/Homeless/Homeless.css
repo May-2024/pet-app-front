@@ -3,4 +3,20 @@
     height: calc(100vh - 4rem);
     display: flex;
     justify-content: center;
+    
+}
+
+.homeles-card-container {
+    height: calc(100vh - 5rem);
+    overflow-y: auto;
+    
+}
+
+.homeles-card-container {
+    height: calc(100vh - 5rem);
+    overflow-y: auto; /* Mantiene el scroll funcional */
+}
+
+.homeles-card-container::-webkit-scrollbar {
+    display: none; /* Esconde la barra de desplazamiento */
 }

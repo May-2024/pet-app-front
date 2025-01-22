@@ -7,13 +7,13 @@ import { useRoutes, BrowserRouter } from "react-router-dom";
 
 import { Navbar } from "./Components/Navbar/Navbar";
 import { Homeless } from "./Pages/Homeless/Homeless";
-import { Pets } from "./Pages/Pets/Pets";
+// import { Pets } from "./Pages/Pets/Pets";
 import { Users } from "./Pages/Users/Users";
 
 function AppRoutes() {
   let routes = useRoutes([
     { path: "/", element: <Homeless /> },
-    { path: "/pets", element: <Pets /> },
+    // { path: "/pets", element: <Pets /> },
     { path: "/users", element: <Users /> },
     
   ]);

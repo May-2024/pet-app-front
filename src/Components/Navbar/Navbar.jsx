@@ -1,28 +1,35 @@
 import { Link } from "react-router-dom";
+import { IoPawSharp } from "react-icons/io5";
+import { IoPawOutline } from "react-icons/io5";
 import "./Navbar.css";
 
 export function Navbar(showItems, setShowItems) {
   return (
     <div className="navbar-container">
-      <figure className="logo-container">
-        <img src="/vite.svg" alt="" />
-      </figure>
+      
+      <div className="app-name-container">
+        <figure className="logo-container">
+          <img src="/perry-serio.jpeg" alt="" />
+        </figure>
+        <div>
+          <p>
+            Pet{" "}
+            <span>
+              <IoPawSharp size={"1rem"} /> <IoPawOutline size={"1rem"} />{" "}
+              <IoPawSharp size={"1rem"} />
+            </span>
+          </p>
+          <p>Friendly</p>
+        </div>
+      </div>
 
       <ul className="links-container">
-        
         <li>
-          <Link to= {"/"}>Homeless</Link>
+          <Link to={"/"}>Adopta</Link>
         </li>
-
         <li>
-          <Link to={"/pets"}>Pets</Link>
+          <Link to={"/users"}>Usuario</Link>
         </li>
-        
-        <li>
-          <Link to={"/users"}>User</Link>
-        </li>
-
-
       </ul>
     </div>
   );

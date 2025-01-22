@@ -9,18 +9,20 @@ export function Card({ object }) {
 
   return (
     <div className="card-container">
-      <div className="imagen-container">Aquí va un img con fotico mascotal</div>
+      <div className="imagen-container">
+        <img src="/perry-official.png" />
+        </div>
 
       <div className="info-container">
         {object.ubicacion ? (
           <div className="card-info-container">
             <div className="card-p-container">
               <p>
-              <IoPawSharp /> Animal: 
+              <IoPawSharp /> Animal: <span>{object.animal}</span>
               </p>
               <p><IoPawOutline /> Genero:</p>
               <p><IoPawSharp /> Edad:</p>
-              <p> <IoPawOutline /> Ubicación:</p>
+              <p> <IoPawOutline /> Ubicación: <span>{object.ubicacion}</span></p>
               <p><IoPawSharp /> Contacto:</p>
             </div>
             <div className="button-container">
@@ -28,9 +30,9 @@ export function Card({ object }) {
             </div>
           </div>
         ) : (
-          <div className="card-info-container"> 
+          <div className="card-info-container">
+            <Hueso/> 
           <div className="card-pets-container">
-            <Hueso/>
             <p><IoPawSharp /> Nombre:</p>
             <p><IoPawOutline /> Edad:</p>
           </div>
