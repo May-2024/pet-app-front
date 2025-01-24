@@ -5,7 +5,6 @@ import { IoPawOutline } from "react-icons/io5";
 import {Hueso} from "../Hueso/Hueso"
 
 export function Card({ object }) {
-  console.log(object);
 
   return (
     <div className="card-container">
@@ -20,10 +19,10 @@ export function Card({ object }) {
               <p>
               <IoPawSharp /> Animal: <span>{object.animal}</span>
               </p>
-              <p><IoPawOutline /> Genero:</p>
-              <p><IoPawSharp /> Edad:</p>
+              <p><IoPawOutline /> Genero: <span>{object.gender}</span></p>
+              <p><IoPawSharp /> Edad: <span>{object.age}</span></p>
               <p> <IoPawOutline /> Ubicación: <span>{object.ubicacion}</span></p>
-              <p><IoPawSharp /> Contacto:</p>
+              <p><IoPawSharp /> Contacto: <span>{object.contacto}</span></p>
             </div>
             <div className="button-container">
               <button className="adopt-button">Adoptar</button>
@@ -33,8 +32,8 @@ export function Card({ object }) {
           <div className="card-info-container">
             <Hueso/> 
           <div className="card-pets-container">
-            <p><IoPawSharp /> Nombre:</p>
-            <p><IoPawOutline /> Edad:</p>
+            <p><IoPawSharp /> Nombre: <span>{object.name}</span></p>
+            <p><IoPawOutline /> Edad: <span>{object.age}</span></p>
           </div>
           </div>
           

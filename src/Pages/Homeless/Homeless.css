@@ -3,20 +3,91 @@
     height: calc(100vh - 4rem);
     display: flex;
     justify-content: center;
-    
+    flex-direction: column;
+    align-items: center; /* Centra verticalmente */
+    /* padding: 1rem; */
+}
+
+.h-imagen-input-container {
+    background-color: var(--hueso);
+    width: 100%;
+    height: 12rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.h-imagen-input-container  img{
+    max-height: 8rem;
 }
 
 .homeles-card-container {
-    height: calc(100vh - 5rem);
-    overflow-y: auto;
-    
-}
-
-.homeles-card-container {
+    display: grid; /* Usa CSS Grid */
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas con igual ancho */
+    gap: 1rem; /* Espaciado entre tarjetas */
+    width: 90%; /* Ajusta el ancho del contenedor */
+    max-width: 1350px; /* Define un máximo para evitar que sea demasiado ancho */
     height: calc(100vh - 5rem);
     overflow-y: auto; /* Mantiene el scroll funcional */
+    padding: 1rem; /* Añade espacio alrededor */
 }
 
 .homeles-card-container::-webkit-scrollbar {
     display: none; /* Esconde la barra de desplazamiento */
+}
+
+
+.h-filtro-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 400px; /* Define un ancho máximo para el input */
+}
+
+.h-filtro-container input.homeless-filtro {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    color: var(--oscurito);
+    background-color: var(--hueso);
+    border: 2px solid var(--cafe-oscuro);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    outline: none;
+    box-shadow: 0 0 8px rgba(81, 66, 49, 0.5);
+}
+
+.h-filtro-container input.homeless-filtro:focus {
+    border-color: var(--cafe-claro);
+    box-shadow: 0 0 8px rgba(116, 87, 52, 0.5);
+    background-color: var(--clarito);
+}
+
+.h-filtro-container input.homeless-filtro::placeholder {
+    color: var(--gris);
+    opacity: 0.7;
+}
+
+/* Estilo para estado de error */
+.h-filtro-container input.homeless-filtro.error {
+    border-color: var(--cafe-oscuro);
+    background-color: rgba(231, 231, 228, 0.8);
+}
+
+.h-filtro-container input.homeless-filtro.error:focus {
+    border-color: var(--cafe-oscuro);
+    box-shadow: 0 0 8px rgba(81, 66, 49, 0.5);
+}
+
+/* Estilo para estado de éxito */
+.h-filtro-container input.homeless-filtro.success {
+    border-color: var(--beige-dorado);
+    background-color: rgba(202, 200, 191, 0.8);
+}
+
+.h-filtro-container input.homeless-filtro.success:focus {
+    border-color: var(--cafe-claro);
+    box-shadow: 0 0 8px rgba(116, 87, 52, 0.5);
 }
