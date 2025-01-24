@@ -32,8 +32,10 @@
 }
 
 .logo-container {
-  height: 4rem;
-  width: 4rem;
+  height: 3.7rem;
+  width: 3.7rem;
+  background-color: var(--hueso);
+  margin: 0.2rem;
   
 }
 .logo-container img {

@@ -9,7 +9,7 @@ export function Navbar(showItems, setShowItems) {
       
       <div className="app-name-container">
         <figure className="logo-container">
-          <img src="/perry-serio.jpeg" alt="" />
+          <img src="/nala-Photoroom.png" alt="" />
         </figure>
         <div>
           <p>
