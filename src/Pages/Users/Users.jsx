@@ -43,9 +43,9 @@ export function Users() {
           </div>
         </div>
       </div>
-      <div className="u-pets-card-container">
         <Pets />
-      </div>
+      {/* <div className="u-pets-card-container">
+      </div> */}
     </div>
   );
 }

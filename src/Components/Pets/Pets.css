@@ -1,21 +1,34 @@
 .pets-container {
-    background-color: var(--beige-dorado);
-    height: calc(100vh - 4rem);
-   
-    display: flex;
-    justify-content: center; 
-  
+  background-color: var(--beige-dorado);
+  height: calc(100% - 14rem);
+  overflow-y: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-
 .pets-card-container {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(2, 1fr);
-    width: 80%; 
-    height: calc(100vh - 5rem);
-    overflow-y: auto; 
-    
-    
-    
+  display: grid; /* Usa CSS Grid */
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas con igual ancho */
+  gap: 1rem; /* Espaciado entre tarjetas */
+  width: 90%; /* Ajusta el ancho del contenedor */
+  max-width: 1350px; /* Define un máximo para evitar que sea demasiado ancho */
+  /* height: calc(100% - 16rem); */
+  overflow-y: auto;
+  padding: 1rem; /* Añade espacio alrededor *Centra los elementos verticalmente */
+}
+
+.pets-container::-webkit-scrollbar {
+  display: none;
+}
+
+.pets-card-container::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 1655px) {
+    .pets-card-container {
+      grid-template-columns: repeat(1, 1fr);
+      justify-items: center;
+    }
 }

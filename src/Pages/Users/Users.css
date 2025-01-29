@@ -1,6 +1,6 @@
 .users-container {
-    background-color: var(--beige-dorado);
-    /* height: calc(100vh - 4rem); */
+    background-color: var(--hueso);
+    height: calc(100vh - 4rem);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -12,7 +12,7 @@
 .u-banner-container {
     background-color: var(--hueso);
     width: 100%;
-    height: 16rem;
+    height: 14rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,17 +76,22 @@
     font-weight: lighter;
 }
 
-.u-pets-card-container {
-    /* display: grid;
+/* .u-pets-card-container {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 100%; 
     height: calc(100vh - 21rem);
     overflow-y: auto; 
-    padding: 1rem; */
+    padding: 1rem;
     background-color: red;
     width: 100%;
-}
+} */
 
-.u-pets-card-container::-webkit-scrollbar {
-    display: none;
+
+/* 
+} */
+ 
+.u-pets-card-container {
+    width: 95%;
+    /* height: calc(70% - 4rem); */
 }
