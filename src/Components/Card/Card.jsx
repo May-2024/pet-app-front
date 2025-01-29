@@ -9,7 +9,7 @@ export function Card({ object }) {
   return (
     <div className="card-container">
       <div className="imagen-container">
-        <img src="/perry-official.png" />
+        <img src="/moca-bebe-Photoroom.png" />
         </div>
 
       <div className="info-container">
@@ -30,11 +30,14 @@ export function Card({ object }) {
           </div>
         ) : (
           <div className="card-info-container">
+            <div className="hueso-container">
             <Hueso/> 
-          <div className="card-pets-container">
-            <p><IoPawSharp /> Nombre: <span>{object.name}</span></p>
-            <p><IoPawOutline /> Edad: <span>{object.age}</span></p>
-          </div>
+
+            </div>
+            <div className="card-pets-container">
+              <p><IoPawSharp /> Nombre: <span>{object.name}</span></p>
+              <p><IoPawOutline /> Edad: <span>{object.age}</span></p>
+            </div>
           </div>
           
         )}

@@ -11,16 +11,16 @@
 .h-imagen-input-container {
     background-color: var(--hueso);
     width: 100%;
-    height: 12rem;
+    height: 14rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
-
 }
 
 .h-imagen-input-container  img{
     max-height: 8rem;
 }
+
 
 .homeles-card-container {
     display: grid; /* Usa CSS Grid */
@@ -28,8 +28,8 @@
     gap: 1rem; /* Espaciado entre tarjetas */
     width: 90%; /* Ajusta el ancho del contenedor */
     max-width: 1350px; /* Define un máximo para evitar que sea demasiado ancho */
-    height: calc(100vh - 5rem);
-    overflow-y: auto; /* Mantiene el scroll funcional */
+    height: calc(100% - 16rem);
+    overflow-y: auto;
     padding: 1rem; /* Añade espacio alrededor */
 }
 
@@ -40,10 +40,11 @@
 
 .h-filtro-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.5rem;
     width: 100%;
-    max-width: 400px; /* Define un ancho máximo para el input */
+    max-width: 400px; 
+    
 }
 
 .h-filtro-container input.homeless-filtro {
@@ -57,6 +58,7 @@
     transition: all 0.3s ease;
     outline: none;
     box-shadow: 0 0 8px rgba(81, 66, 49, 0.5);
+    text-align: center;
 }
 
 .h-filtro-container input.homeless-filtro:focus {
@@ -90,4 +92,99 @@
 .h-filtro-container input.homeless-filtro.success:focus {
     border-color: var(--cafe-claro);
     box-shadow: 0 0 8px rgba(116, 87, 52, 0.5);
+}
+
+.button-filtro {
+    height: 2.6rem;
+    width: 5.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--clarito); 
+    background-color: var(--cafe-claro);
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    cursor: pointer;
+    box-shadow: 0px 6px 0px var(--cafe-oscuro), 0px 6px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    /* margin-bottom: 0.8rem; */
+}
+
+.button-filtro:hover {
+    box-shadow: 0px 4px 0px var(--cafe-oscuro), 0px 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.button-filtro:active {
+    box-shadow: 0px 2px 0px var(--cafe-oscuro), 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transform: translateY(2px);
+}
+
+.form-input-container input{
+    width: 100%;
+    height: 2.6rem;
+    margin:0.6rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+    color: var(--hueso);
+    background-color: var(--cafe-claro);
+    border: 2px solid var(--cafe-oscuro);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    outline: none;
+    box-shadow: 0 0 8px rgba(81, 66, 49, 0.5);
+    
+}
+
+.form-input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-input-container input::placeholder {
+    color:var(--hueso)
+
+}
+
+.h-button-add-homeless {
+    position: fixed; /* Se mantiene en la misma posición en la pantalla */
+    bottom: 1.5rem; /* Margen desde la parte inferior */
+    right: 1.5rem; /* Margen desde la parte derecha */
+    height: 4rem;
+    width: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--clarito); 
+    background-color: var(--cafe-claro);
+    border: none;
+    border-radius: 50%; /* Hace el botón completamente redondo */
+    font-weight: bold;
+    font-size: 3rem;
+    cursor: pointer;
+    box-shadow: 0px 6px 0px var(--cafe-oscuro), 0px 6px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.h-button-add-homeless:hover {
+    box-shadow: 0px 4px 0px var(--cafe-oscuro), 0px 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.h-button-add-homeless:active {
+    box-shadow: 0px 2px 0px var(--cafe-oscuro), 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transform: translateY(2px);
+}
+
+@media (max-width: 1655px) {
+
+    .homeles-card-container {
+        grid-template-columns: repeat(1, 1fr); /* Dos columnas con igual ancho */
+        justify-items: center;
+    }
 }

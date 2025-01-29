@@ -44,3 +44,44 @@
     bottom: -25px;
     right: -25px;
   }
+
+  /* @media (max-width: 1650px) {
+    .hueso {
+      width: 75px;
+      height: 25px;
+      justify-items: center;
+      margin: 0;
+    }
+
+    .hueso > div {
+      width: 25px;
+      height: 25px;
+    }
+
+    .hueso::before,
+    .hueso::after {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+    }
+
+    .hueso > .bottom-left {
+      bottom: -12.5px;
+      left: -12.5px;
+    }
+    
+    .hueso > .bottom-right {
+      bottom: -12.5px;
+      right: -12.5px;
+    }
+
+    .hueso::before {
+      top: -12.5px;
+      left: -12.5px;
+    }
+    
+    .hueso::after {
+      top: -12.5px;
+      right: -12.5px;
+    }
+  } */
