@@ -18,13 +18,23 @@ export function Homeless() {
     contacto: "",
   });
 
+  const [messageErrorFilter, setMessageErrorFilter] = useState("");
   const [messageError, setMessageError] = useState("");
   const [showMessageError, setShowMessageError] = useState(false);
+  const [showMessageErrorFilter, setShowMessageErrorFilter] = useState(false);
+  
+  const [typeAnimalInput, setTypeAnimalInput] = useState("");
+
   const handleInputChange = (event) => {
     setNewHomeless({
       ...newHomeless,
       [event.target.name]: event.target.value,
     });
+  };
+
+  const filterInputChange = (e) => {
+    console.log(e.target.value);
+    setTypeAnimalInput(e.target.value);
   };
 
   const fetchApiData = async () => {
@@ -83,6 +93,30 @@ export function Homeless() {
     }
   };
 
+  const filerByAnimalAxiosRequest = async () => {
+    try {
+      if (!typeAnimalInput) {
+        setMessageErrorFilter("Debes escribir un animal para filtrar");
+        setShowMessageErrorFilter(true);
+        return
+      }
+
+      const apiCall = await axios.get(
+        `http://localhost:3000/api-pets/v1/homeless/filter/${typeAnimalInput}`
+      );
+      console.log(apiCall)
+      if (apiCall.data.statusCode === 200) {
+        setHomelessData(apiCall.data.data)
+        setMessageErrorFilter(
+          `Estos son los ${typeAnimalInput}s que aun no tienen hogar`
+        );
+        setShowMessageErrorFilter(true);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="homeless-container">
       <div className="h-imagen-input-container">
@@ -94,10 +128,23 @@ export function Homeless() {
         </figure>
 
         <div className="h-filtro-container">
-          <input className="homeless-filtro" placeholder="Busca por animal" />
-          <button className="button-filtro">
+          
+          {showMessageErrorFilter && <span>{messageErrorFilter}</span>}
+          <div className="filtro-button-container">
+          <input
+            className="homeless-filtro"
+            placeholder="Busca por animal"
+            onChange={() => filterInputChange(event)}
+          />
+
+          <button
+            className="button-filtro"
+            onClick={() => filerByAnimalAxiosRequest()}
+          >
             <PiMagnifyingGlassBold size={"1.8rem"} />
           </button>
+          </div>
+          
         </div>
         <figure>
           <img src="michi-2-Photoroom.png" />
@@ -105,7 +152,6 @@ export function Homeless() {
         <figure>
           <img src="perry-serio-Photoroom.png" />
         </figure>
-        <button className="add-homeless-button">+</button>
       </div>
       {showModal && (
         <Modal
@@ -169,7 +215,7 @@ export function Homeless() {
           ))}
         </div>
       )}
-      <button 
+      <button
         className="h-button-add-homeless"
         onClick={() => setShowModal(true)}
       >

@@ -8,20 +8,7 @@ import axios from "axios";
 import "./Users.css";
 
 export function Users() {
-  const [usersData, setUsersData] = useState([]);
-
-  const fetchApiData = async () => {
-    const apiCall = await axios.get("http://localhost:3000/api-pets/v1/users");
-
-    const usersList = apiCall.data.data;
-    const oneUserData = usersList.filter((user) => user.name === "maymay");
-    setUsersData(oneUserData[0]);
-    console.log(usersData);
-  };
-
-  useEffect(() => {
-    fetchApiData();
-  }, []);
+ 
 
   const [usersData, setUsersData] = useState([]);
 
