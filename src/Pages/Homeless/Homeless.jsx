@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { Card } from "../../Components/Card/Card";
 import { Modal } from "../../Components/Modal/Modal";
 import { PiMagnifyingGlassBold } from "react-icons/pi";
+import { Modal } from "../../Components/Modal/Modal";
+import { PiMagnifyingGlassBold } from "react-icons/pi";
 import axios from "axios";
 
 import "./Homeless.css";
@@ -38,6 +40,15 @@ export function Homeless() {
   };
 
   const fetchApiData = async () => {
+    try {
+      const apiCall = await axios.get(
+        "http://localhost:3000/api-pets/v1/homeless"
+      );
+      // console.log(apiCall.data.data);
+      setHomelessData(apiCall.data.data);
+    } catch (error) {
+      console.log(error);
+    }
     try {
       const apiCall = await axios.get(
         "http://localhost:3000/api-pets/v1/homeless"
@@ -153,6 +164,59 @@ export function Homeless() {
           <img src="perry-serio-Photoroom.png" />
         </figure>
       </div>
+      {showModal && (
+        <Modal
+          title={"Registrar animal"}
+          primaryButton={{
+            primaryLabel: "Aceptar",
+            onPrimaryClick: createHomelessAxiosRequest,
+          }}
+          secondaryButton={{
+            secondaryLabel: "Cancelar",
+            onSecondaryClick: setShowModal,
+          }}
+        >
+          {showMessageError && <span>{messageError}</span>}
+          <div className="form-input-container">
+            <input
+              type="text"
+              placeholder="Ej: Gato, Perro, etc"
+              name={"animal"}
+              value={newHomeless.animal}
+              onChange={handleInputChange}
+            />
+            <input
+              type="number"
+              placeholder="Edad"
+              name={"age"}
+              value={newHomeless.age}
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              placeholder="hembra o macho"
+              name={"gender"}
+              value={newHomeless.gender}
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              placeholder="Ubicación"
+              name={"ubicacion"}
+              value={newHomeless.ubicacion}
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              placeholder="Contacto"
+              name={"contacto"}
+              value={newHomeless.contacto}
+              onChange={handleInputChange}
+            />
+          </div>
+        </Modal>
+      )}
+
       {showModal && (
         <Modal
           title={"Registrar animal"}

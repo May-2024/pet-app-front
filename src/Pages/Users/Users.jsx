@@ -25,6 +25,21 @@ export function Users() {
     fetchApiData();
   }, []);
 
+  const [usersData, setUsersData] = useState([]);
+
+  const fetchApiData = async () => {
+    const apiCall = await axios.get("http://localhost:3000/api-pets/v1/users");
+
+    const usersList = apiCall.data.data;
+    const oneUserData = usersList.filter((user) => user.name === "maymay");
+    setUsersData(oneUserData[0]);
+    console.log(usersData);
+  };
+
+  useEffect(() => {
+    fetchApiData();
+  }, []);
+
   return (
     <div className="users-container">
       <div className="u-banner-container">
