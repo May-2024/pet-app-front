@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { Card } from "../../Components/Card/Card";
 import { Modal } from "../../Components/Modal/Modal";
 import { PiMagnifyingGlassBold } from "react-icons/pi";
+import { Modal } from "../../Components/Modal/Modal";
+import { PiMagnifyingGlassBold } from "react-icons/pi";
 import axios from "axios";
 
 import "./Homeless.css";
@@ -18,8 +20,13 @@ export function Homeless() {
     contacto: "",
   });
 
+  const [messageErrorFilter, setMessageErrorFilter] = useState("");
   const [messageError, setMessageError] = useState("");
   const [showMessageError, setShowMessageError] = useState(false);
+  const [showMessageErrorFilter, setShowMessageErrorFilter] = useState(false);
+  
+  const [typeAnimalInput, setTypeAnimalInput] = useState("");
+
   const handleInputChange = (event) => {
     setNewHomeless({
       ...newHomeless,
@@ -27,7 +34,21 @@ export function Homeless() {
     });
   };
 
+  const filterInputChange = (e) => {
+    console.log(e.target.value);
+    setTypeAnimalInput(e.target.value);
+  };
+
   const fetchApiData = async () => {
+    try {
+      const apiCall = await axios.get(
+        "http://localhost:3000/api-pets/v1/homeless"
+      );
+      // console.log(apiCall.data.data);
+      setHomelessData(apiCall.data.data);
+    } catch (error) {
+      console.log(error);
+    }
     try {
       const apiCall = await axios.get(
         "http://localhost:3000/api-pets/v1/homeless"
@@ -83,6 +104,30 @@ export function Homeless() {
     }
   };
 
+  const filerByAnimalAxiosRequest = async () => {
+    try {
+      if (!typeAnimalInput) {
+        setMessageErrorFilter("Debes escribir un animal para filtrar");
+        setShowMessageErrorFilter(true);
+        return
+      }
+
+      const apiCall = await axios.get(
+        `http://localhost:3000/api-pets/v1/homeless/filter/${typeAnimalInput}`
+      );
+      console.log(apiCall)
+      if (apiCall.data.statusCode === 200) {
+        setHomelessData(apiCall.data.data)
+        setMessageErrorFilter(
+          `Estos son los ${typeAnimalInput}s que aun no tienen hogar`
+        );
+        setShowMessageErrorFilter(true);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="homeless-container">
       <div className="h-imagen-input-container">
@@ -94,10 +139,23 @@ export function Homeless() {
         </figure>
 
         <div className="h-filtro-container">
-          <input className="homeless-filtro" placeholder="Busca por animal" />
-          <button className="button-filtro">
+          
+          {showMessageErrorFilter && <span>{messageErrorFilter}</span>}
+          <div className="filtro-button-container">
+          <input
+            className="homeless-filtro"
+            placeholder="Busca por animal"
+            onChange={() => filterInputChange(event)}
+          />
+
+          <button
+            className="button-filtro"
+            onClick={() => filerByAnimalAxiosRequest()}
+          >
             <PiMagnifyingGlassBold size={"1.8rem"} />
           </button>
+          </div>
+          
         </div>
         <figure>
           <img src="michi-2-Photoroom.png" />
@@ -105,8 +163,60 @@ export function Homeless() {
         <figure>
           <img src="perry-serio-Photoroom.png" />
         </figure>
-        <button className="add-homeless-button">+</button>
       </div>
+      {showModal && (
+        <Modal
+          title={"Registrar animal"}
+          primaryButton={{
+            primaryLabel: "Aceptar",
+            onPrimaryClick: createHomelessAxiosRequest,
+          }}
+          secondaryButton={{
+            secondaryLabel: "Cancelar",
+            onSecondaryClick: setShowModal,
+          }}
+        >
+          {showMessageError && <span>{messageError}</span>}
+          <div className="form-input-container">
+            <input
+              type="text"
+              placeholder="Ej: Gato, Perro, etc"
+              name={"animal"}
+              value={newHomeless.animal}
+              onChange={handleInputChange}
+            />
+            <input
+              type="number"
+              placeholder="Edad"
+              name={"age"}
+              value={newHomeless.age}
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              placeholder="hembra o macho"
+              name={"gender"}
+              value={newHomeless.gender}
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              placeholder="Ubicación"
+              name={"ubicacion"}
+              value={newHomeless.ubicacion}
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              placeholder="Contacto"
+              name={"contacto"}
+              value={newHomeless.contacto}
+              onChange={handleInputChange}
+            />
+          </div>
+        </Modal>
+      )}
+
       {showModal && (
         <Modal
           title={"Registrar animal"}
@@ -169,7 +279,7 @@ export function Homeless() {
           ))}
         </div>
       )}
-      <button 
+      <button
         className="h-button-add-homeless"
         onClick={() => setShowModal(true)}
       >
